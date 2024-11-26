@@ -1,0 +1,10 @@
+---
+- name: Provision and deploy Flask app
+  hosts: all
+  become: true
+  vars_files:
+    - secrets.yml
+
+  roles:
+    - docker_install
+    - flask_deploy

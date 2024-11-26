@@ -1,0 +1,19 @@
+---
+# tasks file for flask_deploy
+- name: Pull Flask Docker image
+  docker_image:
+    name: abrar2510/flask-docker-app
+    tag: "{{ docker_tag }}"
+    source: pull
+
+- name: Run Flask Docker container
+  docker_container:
+    name: flask_app
+    image: abrar2510/flask-docker-app:{{ docker_tag }}
+    state: started
+    restart_policy: always
+    published_ports:
+      - "500{{ build_number }}:8080"
+
+  notify:
+        - Restart Flask container

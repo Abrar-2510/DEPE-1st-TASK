@@ -1,0 +1,8 @@
+---
+# handlers file for flask_deploy
+
+  - name: Restart Flask container
+    systemd:
+      become: true
+      name: flask_app
+      state: restarted

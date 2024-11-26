@@ -1,4 +1,3 @@
-
 FROM python:3.9-slim
 
 WORKDIR /app
@@ -10,6 +9,7 @@ RUN pip install --no-cache-dir flask
 EXPOSE 8080
 
 ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8080
 
-CMD ["python", "app.py", "--host=0.0.0.0", "--port=8080"]
-
+CMD ["flask", "run"]

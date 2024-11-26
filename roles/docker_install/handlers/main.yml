@@ -1,0 +1,8 @@
+---
+# handlers file for docker_install
+
+  - name: Restart Docker service
+    service:
+      name: docker
+      state: restarted
+
